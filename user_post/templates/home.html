@@ -12,7 +12,11 @@
     <p>{{poster.title}}</p>
     <p>{{poster.comment}}</p>
     <p>{{poster.written_by}}</p>
-    <form method="post" style="display: inline">
+    <form
+      method="post"
+      action="{% url 'delete' poster.id %}"
+      style="display: inline"
+    >
       {% csrf_token %}
       <button type="submit">Delete</button>
     </form>

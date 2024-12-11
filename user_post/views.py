@@ -24,14 +24,14 @@ def userpost(request):
   return render(request,'user.html',{'usepos':usepos})
 
 
-def delete(request, id):
+def delete(request, post_id):
     if request.method == 'POST':
-      post = get_object_or_404(Poster, id=id)  # Fetch the post to delete
+      post = get_object_or_404(Poster, id=post_id)  # Fetch the post to delete
       post.delete()  # Delete the post
       return redirect(home)  
     
     else:
-      return redirect('home')
+      return redirect(home)
 
 
  
