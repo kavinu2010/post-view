@@ -1,4 +1,4 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render ,redirect,get_object_or_404
 from .models import Poster
 from .forms import PostForm
 
@@ -24,3 +24,14 @@ def userpost(request):
   return render(request,'user.html',{'usepos':usepos})
 
 
+def delete(request, id):
+    if request.method == 'POST':
+      post = get_object_or_404(Poster, id=id)  # Fetch the post to delete
+      post.delete()  # Delete the post
+      return redirect(home)  
+    
+    else:
+      return redirect('home')
+
+
+ 

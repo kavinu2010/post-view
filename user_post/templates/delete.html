@@ -6,19 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>WELCOME TO THE POSTED VIEW PAGE</h1>
-
-    {% for poster in posti %}
-    <p>{{poster.title}}</p>
-    <p>{{poster.comment}}</p>
-    <p>{{poster.written_by}}</p>
-    <form method="post" style="display: inline">
+    <form method="post" action="{% url 'delete' post.id %}">
       {% csrf_token %}
       <button type="submit">Delete</button>
     </form>
-    <hr />
-    {%endfor%}
-
-    <a href="add/">ADD</a>
   </body>
 </html>
